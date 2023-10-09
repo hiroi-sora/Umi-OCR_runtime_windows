@@ -1,6 +1,10 @@
-# Umi-OCR_runtime_windows
+# Umi-OCR windows 运行环境
 
-Umi-OCR windows 运行环境。理论上最低支持 win7 32位。
+为 [Umi-OCR_v2](https://github.com/hiroi-sora/Umi-OCR_v2) 提供运行环境。
+
+### 系统支持
+
+理论上最低支持 win7 32位。
 
 （32位系统未做测试，且没有支持的离线OCR组件。64位有完整支持。）
 
