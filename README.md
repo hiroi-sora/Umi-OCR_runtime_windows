@@ -16,7 +16,15 @@
 2. python解释器 `runtime` (3.8.10, 32位)
 3. python第三方库 `site-packages`
 
-### 运行环境食用方法
+# Umi-OCR 搭建windows开发环境
+
+开发者你好，探索和参与 Umi-OCR 项目。下文将会指导你搭建起适用于 Umi-OCR V2 的开发环境。
+
+搭建windows开发环境分为两步：放置运行环境 与 搭建开发环境。
+
+## 1. 放置运行环境
+
+clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列方法导入运行环境
 
 #### 从Release（推荐）
 
@@ -32,7 +40,37 @@
 3. 将 `UmiOCR-data/runtime.zip` 解压，并放置于Umi-OCR项目相同位置。
 4. 将 `UmiOCR-data/site-packages` 中的所有 `zip` 解压，并将整个 `site-packages` 放置于Umi-OCR项目相同位置。
 
-### 开发指南：关于第三方包
+## 2. 搭建开发环境
+
+### 工欲善其事，必先利其器
+
+- 系统要求：建议 Win10/11 。win7也成。
+- 编辑器：建议 [VS Code](https://code.visualstudio.com/)
+- VS Code 插件推荐：
+  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) （Python规范格式化）
+  - [QML](https://marketplace.visualstudio.com/items?itemName=bbenoist.QML) （提供qml语法高亮）
+  - [QML Snippets](https://marketplace.visualstudio.com/items?itemName=ThomasVogelpohl.vsc-qml-snippets) （提供qml代码补全）
+
+本项目内嵌了所有前端运行环境及第三方库，故你不再需要安装Python和QT等开发环境；只需一个趁手的编辑器即可。
+
+如果你不喜欢 VS Code ，也可以用任何编辑器——甚至记事本来开发本项目。
+
+### 部署开发环境
+
+1. 回到主项目根目录，点击 `Umi-OCR.exe` 测试运行项目。不出意外的话，能正常打开软件界面。
+2. `.vscode` 目录是编辑器配置文件目录，已经填写好了必要的环境参数。用 VS Code 打开其中的工作区文件 `Umi-OCR_v2.code-workspace` 。
+3. 在 VS Code 内随便打开一个python文件，如 `UmiOCR-data/pyapp/run.py` 。不出意外的话，能够显示代码高亮。
+4. 尝试点击 F5 调试程序。如果已经能跑起来了，则项目开发环境已经搭建成功。
+5. 如果 VS Code 报错 `The Python path in your debug configuration is invalid.` ，则重新指定一下PY解释器路径。按快捷键 `Ctrl+Shift+P` ，然后输入 `Python:Select Interpreter` 。点第一个，然后 `+ Enter inter preter path...` 。
+6. 在弹出的文件选择弹窗中，选择 `项目目录/UmiOCR-data/.runtime/python.exe` 。
+7. 再度点击 F5 调试程序，此时应该肯定能跑起来了。
+
+注意，如果你本地已经安装过python，则建议不要用你的本地解释器运行本项目。请使用本项目内置的解释器。
+
+---
+
+## 关于第三方包
 
 如果你正在对 Umi-OCR 进行二次开发，并希望载入第三方python包，请参照以下步骤。
 
