@@ -20,7 +20,7 @@
 
 开发者你好，探索和参与 Umi-OCR 项目。下文将会指导你搭建起适用于 Umi-OCR V2 的开发环境。
 
-搭建windows开发环境分为两步：放置运行环境 与 搭建开发环境。
+搭建windows开发环境分为三步：放置运行环境、放置插件、搭建开发环境。
 
 ## 1. 放置运行环境
 
@@ -40,7 +40,11 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
 3. 将 `UmiOCR-data/runtime.zip` 解压，并放置于Umi-OCR项目相同位置。
 4. 将 `UmiOCR-data/site-packages` 中的所有 `zip` 解压，并将整个 `site-packages` 放置于Umi-OCR项目相同位置。
 
-## 2. 搭建开发环境
+## 2. 放置插件
+
+在 [插件仓库](https://github.com/hiroi-sora/Umi-OCR_plugins) 下载需要的插件，根据提示放置在Umi-OCR指定目录下。
+
+## 3. 搭建开发环境
 
 ### 工欲善其事，必先利其器
 
