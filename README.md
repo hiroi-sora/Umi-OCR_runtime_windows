@@ -1,6 +1,6 @@
 # Umi-OCR windows 运行环境
 
-为 [Umi-OCR_v2](https://github.com/hiroi-sora/Umi-OCR_v2) 提供运行环境。
+为 [Umi-OCR_v2](https://github.com/hiroi-sora/Umi-OCR_v2) 的代码 提供Windows运行环境。
 
 ### 系统支持
 
