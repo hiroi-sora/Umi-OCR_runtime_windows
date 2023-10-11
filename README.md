@@ -64,13 +64,13 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
 
 1. 回到主项目根目录，点击 `Umi-OCR.exe` 测试运行项目。不出意外的话，能正常打开软件界面。
 2. `.vscode` 目录是编辑器配置文件目录，已经填写好了必要的环境参数。用 VS Code 打开其中的工作区文件 `Umi-OCR_v2.code-workspace` 。
-3. 在 VS Code 内随便打开一个python文件，如 `UmiOCR-data/pyapp/run.py` 。不出意外的话，能够显示代码高亮。
+3. 在 VS Code 内随便打开一个python文件，如 `UmiOCR-data/py_res/run.py` 。不出意外的话，能够显示代码高亮。
 4. 尝试点击 F5 调试程序。如果已经能跑起来了，则项目开发环境已经搭建成功。
 5. 如果 VS Code 报错 `The Python path in your debug configuration is invalid.` ，则重新指定一下PY解释器路径。按快捷键 `Ctrl+Shift+P` ，然后输入 `Python:Select Interpreter` 。点第一个，然后 `+ Enter inter preter path...` 。
-6. 在弹出的文件选择弹窗中，选择 `项目目录/UmiOCR-data/.runtime/python.exe` 。
+6. 在弹出的文件选择弹窗中，选择 `项目目录/UmiOCR-data/runtime/python.exe` 。
 7. 再度点击 F5 调试程序，此时应该肯定能跑起来了。
 
-注意，如果你本地已经安装过python，则建议不要用你的本地解释器运行本项目。请使用本项目内置的解释器。
+注意，如果你本地已经安装过python，则建议**不要用本地环境**运行本项目。请使用本项目内置的py环境。
 
 ---
 
@@ -83,11 +83,11 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
 由于这个运行环境基于嵌入式python解释器，所以不支持pip安装。请在你的电脑上安装另外的完整python环境，然后使用下列命令下载适用于本环境的包：
 
 ```
-pip download --only-binary=:all: --platform win32 PySide2 [包名]
+pip download --only-binary=:all: --platform win32 [包名]
 ```
 或
 ```
-pip download --only-binary=:all: --python-version 38 --platform win32 [包名]
+pip download --only-binary=:all: --platform win32 --python-version 38 [包名]
 ```
 
 例如，我想下载 `PySide2` 库，则使用命令：
