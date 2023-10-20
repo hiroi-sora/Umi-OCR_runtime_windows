@@ -12,8 +12,6 @@
 
 注意区分32/64位。
 
-TODO: 64位环境正在整理中，请先使用32位。
-
 1. 启动器exe
 2. python解释器 `runtime` (3.8.10)
 3. python第三方库 `site-packages`
@@ -28,19 +26,10 @@ TODO: 64位环境正在整理中，请先使用32位。
 
 clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列方法导入运行环境
 
-#### 从Release（推荐）
-
 1. 从本仓库Release下载压缩包
 2. 解压压缩包，将其中的内容拷贝到 Umi-OCR v2 项目路径下。
 
 （压缩包的目录结构，与 Umi-OCR 的项目结构是一一对应的，理论上直接拷贝，可以直接将文件放置到合适的位置。）
-
-#### 从clone
-
-1. clone本仓库
-2. 将 `Umi-OCR.exe` 放置到Umi-OCR项目目录。
-3. 将 `UmiOCR-data/runtime.zip` 解压，并放置于Umi-OCR项目相同位置。
-4. 将 `UmiOCR-data/site-packages` 中的所有 `zip` 解压，并将整个 `site-packages` 放置于Umi-OCR项目相同位置。
 
 ## 2. 放置插件
 
@@ -84,17 +73,19 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
 
 由于这个运行环境基于嵌入式python解释器，所以不支持pip安装。请在你的电脑上安装另外的完整python环境，然后使用下列命令下载适用于本环境的包：
 
+（如果是32位环境，将下列`win_amd64`替换为`win32`）
+
 ```
-pip download --only-binary=:all: --platform win32 [包名]
+pip download --only-binary=:all: --platform win_amd64 [包名]
 ```
 或
 ```
-pip download --only-binary=:all: --platform win32 --python-version 38 [包名]
+pip download --only-binary=:all: --platform win_amd64 --python-version 38 [包名]
 ```
 
 例如，我想下载 `PySide2` 库，则使用命令：
 ```
-pip download --only-binary=:all: --platform win32 PySide2
+pip download --only-binary=:all: --platform win_amd64 PySide2
 ```
 
 2. 安装
@@ -103,7 +94,7 @@ pip download --only-binary=:all: --platform win32 PySide2
 
 有部分包直接放置不能运行，请根据报错信息见机行事。常见的原因有：
 - import层级错误。将包内代码修改为相对导入。
-- python版本或系统平台错误。请确保此包兼容win 32位、python 3.8 。
+- python版本或系统平台错误。请确保此包兼容win 32/64位、python 3.8 。
 大部分包在调整之后可以正常运行，于pip安装无异。
 
 如果某些包有大量依赖、难以安装，如某些大型机器学习库。那么你要思考，将这几百MB塞进项目，会不会影响Umi-OCR的轻便易用性。也许更应该以 [插件](https://github.com/hiroi-sora/Umi-OCR_plugins) 的形式提供这些功能。
