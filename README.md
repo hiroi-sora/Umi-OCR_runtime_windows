@@ -109,3 +109,36 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 - 确保该包已经删减到最小
 - 压缩为zip，放置于 `site-packages` 中
 - push到本仓库
+
+# Umi-OCR 项目结构
+
+### 各仓库：
+
+- [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2)
+- [插件库](https://github.com/hiroi-sora/Umi-OCR_plugins)
+- [Win 运行库](https://github.com/hiroi-sora/Umi-OCR_runtime_windows) 👈
+
+### 工程结构：
+
+`**` 后缀表示本仓库(`Windows 运行库`)包含的内容。
+
+```
+Umi-OCR
+├─ Umi-OCR.exe **
+└─ UmiOCR-data
+   ├─ main.py
+   ├─ version.py
+   ├─ site-packages **
+   │  └─ python包
+   ├─ runtime **
+   │  └─ python解释器
+   ├─ qt_res
+   │  └─ 项目qt资源，包括图标和qml源码
+   ├─ py_src
+   │  └─ 项目python源码
+   ├─ plugins
+   │  └─ 插件
+   └─ i18n
+      └─ 翻译文件
+```
+
