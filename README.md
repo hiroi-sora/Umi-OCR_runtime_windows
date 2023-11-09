@@ -4,13 +4,11 @@
 
 ### 系统支持
 
-理论上最低支持 win7 32位。
+最低支持 win7 64位。
 
 ### 运行环境组成
 
 运行环境分为三部分。将这三部分放置于 Umi-OCR v2 项目源代码中，就可以跑起来。
-
-注意区分32/64位。
 
 1. 启动器exe
 2. python解释器 `runtime` (3.8.10)
@@ -20,16 +18,18 @@
 
 开发者你好，探索和参与 Umi-OCR 项目。下文将会指导你搭建起适用于 Umi-OCR V2 的开发环境。
 
-搭建windows开发环境分为三步：放置运行环境、放置插件、搭建开发环境。
+搭建windows开发环境分为四步：下载主仓库代码、放置运行环境、放置插件、搭建开发环境。
+
+## 0. 下载主仓库代码
+
+fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 ## 1. 放置运行环境
-
-clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列方法导入运行环境
 
 1. 从本仓库Release下载压缩包
 2. 解压压缩包，将其中的内容拷贝到 Umi-OCR v2 项目路径下。
 
-（压缩包的目录结构，与 Umi-OCR 的项目结构是一一对应的，理论上直接拷贝，可以直接将文件放置到合适的位置。）
+（压缩包的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
 
 ## 2. 放置插件
 
@@ -47,7 +47,7 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
   - [QML](https://marketplace.visualstudio.com/items?itemName=bbenoist.QML) （提供qml语法高亮）
   - [QML Snippets](https://marketplace.visualstudio.com/items?itemName=ThomasVogelpohl.vsc-qml-snippets) （提供qml代码补全）
 
-本项目内嵌了所有前端运行环境及第三方库，故你不再需要安装Python和QT等开发环境；只需一个趁手的编辑器即可。
+与常见的Python项目不同，本项目内嵌了所有前端运行环境及第三方库文件。故你不需要安装Python和QT等开发环境，也不需要pip安装任何包。只需一个趁手的编辑器即可。
 
 如果你不喜欢 VS Code ，也可以用任何编辑器——甚至记事本来开发本项目。
 
@@ -73,8 +73,6 @@ clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) ，然后按下列�
 
 由于这个运行环境基于嵌入式python解释器，所以不支持pip安装。请在你的电脑上安装另外的完整python环境，然后使用下列命令下载适用于本环境的包：
 
-（如果是32位环境，将下列`win_amd64`替换为`win32`）
-
 ```
 pip download --only-binary=:all: --platform win_amd64 [包名]
 ```
@@ -88,7 +86,7 @@ pip download --only-binary=:all: --platform win_amd64 --python-version 38 [包�
 pip download --only-binary=:all: --platform win_amd64 PySide2
 ```
 
-2. 安装
+1. 安装
 
 将下载的whl包解压，然后塞到 `UmiOCR-data/site-packages` 目录下即可。
 
