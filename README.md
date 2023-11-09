@@ -26,10 +26,10 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 ## 1. 放置运行环境
 
-1. 从本仓库Release下载压缩包
+1. 从 [本仓库Release](https://github.com/hiroi-sora/Umi-OCR_runtime_windows/releases) 下载压缩包。
 2. 解压压缩包，将其中的内容拷贝到 Umi-OCR v2 项目路径下。
 
-（压缩包的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
+（环境压缩包的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
 
 ## 2. 放置插件
 
@@ -47,7 +47,7 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
   - [QML](https://marketplace.visualstudio.com/items?itemName=bbenoist.QML) （提供qml语法高亮）
   - [QML Snippets](https://marketplace.visualstudio.com/items?itemName=ThomasVogelpohl.vsc-qml-snippets) （提供qml代码补全）
 
-与常见的Python项目不同，本项目内嵌了所有前端运行环境及第三方库文件。故你不需要安装Python和QT等开发环境，也不需要pip安装任何包。只需一个趁手的编辑器即可。
+与常见的Python项目不同，本项目内嵌了所有PY运行环境及第三方库文件。故你不需要额外安装Python和QT等东西，也不需要pip安装任何包。只需一个趁手的编辑器即可。
 
 如果你不喜欢 VS Code ，也可以用任何编辑器——甚至记事本来开发本项目。
 
@@ -60,8 +60,9 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 5. 如果 VS Code 报错 `The Python path in your debug configuration is invalid.` ，则重新指定一下PY解释器路径。按快捷键 `Ctrl+Shift+P` ，然后输入 `Python:Select Interpreter` 。点第一个，然后 `+ Enter inter preter path...` 。
 6. 在弹出的文件选择弹窗中，选择 `项目目录/UmiOCR-data/runtime/python.exe` 。
 7. 再度点击 F5 调试程序，此时应该肯定能跑起来了。
+8. Vs Code 的断点调试等开发工具应该也能正常使用。（注：只能对python代码进行断点调试，qml代码不行。只能用`console`大法来调试qml。）
 
-注意，如果你本地已经安装过python，则建议**不要用本地环境**运行本项目。请使用本项目内置的py环境。
+注意，如果你本地已经安装过python，则建议**不要用本地环境**运行本项目。请使用本项目**内置的py环境**。
 
 ---
 
@@ -86,14 +87,16 @@ pip download --only-binary=:all: --platform win_amd64 --python-version 38 [包�
 pip download --only-binary=:all: --platform win_amd64 PySide2
 ```
 
-1. 安装
+当然，如果你本地安装的python版本也是3.8.10 x64，那么可以尝试直接pip安装到本地python环境（或虚拟环境），然后将安装好的包文件拷贝出来用。
+
+2. 安装
 
 将下载的whl包解压，然后塞到 `UmiOCR-data/site-packages` 目录下即可。
 
 有部分包直接放置不能运行，请根据报错信息见机行事。常见的原因有：
 - import层级错误。将包内代码修改为相对导入。
 - python版本或系统平台错误。请确保此包兼容win 32/64位、python 3.8 。
-大部分包在调整之后可以正常运行，于pip安装无异。
+大部分包在调整之后可以正常运行，与pip安装无异。
 
 如果某些包有大量依赖、难以安装，如某些大型机器学习库。那么你要思考，将这几百MB塞进项目，会不会影响Umi-OCR的轻便易用性。也许更应该以 [插件](https://github.com/hiroi-sora/Umi-OCR_plugins) 的形式提供这些功能。
 
