@@ -20,7 +20,7 @@
 
 搭建windows开发环境分为四步：下载主仓库代码、放置运行环境、放置插件、搭建开发环境。
 
-## 0. 下载主仓库代码
+## 0. 下载主要代码
 
 fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
@@ -37,7 +37,7 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 ## 3. 搭建开发环境
 
-### 工欲善其事，必先利其器
+### 3.1. 工欲善其事，必先利其器
 
 - 系统要求：建议 Win10/11 。win7也成。
 - 编辑器：建议 [VS Code](https://code.visualstudio.com/)
@@ -51,7 +51,7 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 如果你不喜欢 VS Code ，也可以用任何编辑器——甚至记事本来开发本项目。
 
-### 部署开发环境
+### 3.2. 部署开发环境
 
 1. 回到主项目根目录，点击 `Umi-OCR.exe` 测试运行项目。不出意外的话，能正常打开软件界面。
 2. `.vscode` 目录是编辑器配置文件目录，已经填写好了必要的环境参数。用 VS Code 打开其中的工作区文件 `Umi-OCR_v2.code-workspace` 。
