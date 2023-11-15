@@ -39,8 +39,9 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 ### 3.1. 工欲善其事，必先利其器
 
-- 系统要求：建议 Win10/11 。win7也成。
+- 系统要求：建议 Win10/11 。Win7也成。
 - 编辑器：建议 [VS Code](https://code.visualstudio.com/)
+  - Tips：VS Code最后一个支持Win7的版本：[v1.70](https://code.visualstudio.com/updates/v1_70)
 - VS Code 插件推荐：
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) （Python规范格式化）
