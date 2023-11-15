@@ -65,6 +65,29 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 注意，如果你本地已经安装过python，则建议**不要用本地环境**运行本项目。请使用本项目**内置的py环境**。
 
+### 4. 一键打包脚本 `release.py`
+
+完成开发工作后，可以使用一键打包脚本。功能包括：
+- 提取出程序文件夹
+- 生成7z或zip压缩包
+
+#### 使用方法：
+
+本地已安装Python：
+```
+python release.py
+```
+
+本地未安装Python：
+```
+UmiOCR-data/runtime/python.exe release.py
+```
+
+查看可选参数：
+```
+--help
+```
+
 ---
 
 ## 关于第三方包
