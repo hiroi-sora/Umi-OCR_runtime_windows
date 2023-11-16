@@ -9,6 +9,12 @@ import subprocess
 
 # 定义参数
 parser = argparse.ArgumentParser(description="Umi-OCR Release 生成发布包")
+# 是否打压缩包
+parser.add_argument("--to_7z", action="store_true", default=True, help="[选填] 是否生成压缩包")
+# 是否生成自解压文件
+parser.add_argument(
+    "--to_sfx", action="store_true", default=True, help="[选填] 是否生成自解压文件"
+)
 # 发布目录
 parser.add_argument("--path", default="./release", help="[选填] 发布包存放路径，默认为 /release")
 # 版本文件路径
@@ -36,11 +42,15 @@ parser.add_argument(
 # 7z工具路径
 parser.add_argument(
     "--path_7z",
-    default="7zr.exe",
+    default="dev-tools/7z/7zr.exe",
     help="[选填] 7z 命令行工具的路径，打压缩包要用",
 )
-# 是否打压缩包
-parser.add_argument("--to_7z", action="store_true", help="[选填] 是否生成压缩包")
+# sfx路径
+parser.add_argument(
+    "--path_sfx",
+    default="dev-tools/7z/7z.sfx",
+    help="[选填] sfx 自解压工具的路径，创建自解压文件要用",
+)
 # 压缩类型
 parser.add_argument(
     "--args_7z",
@@ -97,7 +107,7 @@ def copy_all():
     print(f"文件总数：{files_n}，总大小：{files_size//1048576}MB")
 
 
-copy_all()
+# copy_all()
 
 
 # 获取版本号信息
@@ -124,8 +134,10 @@ print("解析版本信息：", v1, v2, v3, p1, p2)
 # 获取插件信息
 def get_plugins(v1, v2, v3, p1, p2):
     version = f"_v{v1}.{v2}.{v3}"
-    if p1 and p2:
-        version += f"_{p1}_{p2}"
+    if p1:
+        version += f"_{p1}"
+    if p2:
+        version += f"_{p2}"
     plug = args.plugins
     plug = plug.split("|")
     plugs = {}
@@ -165,8 +177,12 @@ def copy_plugins(plugs):
                     print("    删除", path)
 
 
-copy_plugins(plugs)
+# copy_plugins(plugs)
 
+# 生成压缩包
+if not args.to_7z:
+    print("打包结束。")
+    exit()
 # 检测 7zr.exe 存在
 if not os.path.exists(args.path_7z):
     print("未找到 7zr.exe ，停止后续压缩步骤。")
@@ -190,5 +206,35 @@ def to_zip(plugs):
         subprocess.run(command)
 
 
-if args.to_7z:
-    to_zip(plugs)
+# to_zip(plugs)
+
+# 生成自解压文件
+if not args.to_sfx:
+    print("打包结束。")
+    exit()
+# 检测 7zr.exe 存在
+if not os.path.exists(args.path_sfx):
+    print("未找到 sfx ，停止后续创建自解压文件步骤。")
+
+
+# 生成压缩包
+def to_sfx(plugs):
+    for key, value in plugs.items():
+        # sfx绝对路径
+        path_sfx = os.path.abspath(args.path_sfx)
+        # 目标路径
+        target = value["name"] + ".7z"
+        # copy构建sfx
+        command = [
+            "copy",
+            "/b",
+            f"{path_sfx}+{target}",
+            f"{target}.exe",
+        ]
+        print("\n开始创建插件sfx自解压文件：\n", command)
+        subprocess.run(command, shell=True, cwd=args.path)
+
+
+to_sfx(plugs)
+
+print("打包结束。")
