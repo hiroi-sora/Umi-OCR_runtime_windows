@@ -68,8 +68,9 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 ### 4. 一键打包脚本 `release.py`
 
 完成开发工作后，可以使用一键打包脚本。功能包括：
-- 提取出程序文件夹
+- 提取程序文件
 - 生成7z或zip压缩包
+- 生成自解压exe可执行程序
 
 #### 使用方法：
 
@@ -83,10 +84,22 @@ python release.py
 UmiOCR-data/runtime/python.exe release.py
 ```
 
-查看可选参数：
+一般情况下，无需设定任何参数，一键运行即可。
+
+可定制参数（均非必填）：
 ```
---help
+--to_7z      是否生成压缩包，默认1
+--to_sfx     是否生成自解压文件，默认1
+--path       发布包存放路径，默认为 /release
+--version    版本文件 version.py 的路径
+--run        启动器路径，默认为 Umi-OCR.exe
+--datas      内容目录文件选取，格式：文件1,文件2,文件3……
+--plugins    插件选取，格式：打包名1,插件1,插件2|打包名2,插件2,插件3……
+--path_7z    7z 命令行工具的路径，打压缩包要用，默认 dev-tools/7z/7zr.exe
+--path_sfx   sfx 自解压工具的路径，创建自解压文件要用，默认 dev-tools/7z/7z.sfx
+--args_7z    7z 参数，可指定压缩包类型和压缩率等。如-t7z等指定压缩类型参数必须放在最后
 ```
+可通过 `release.py --help` 查看最新参数，或浏览 `release.py` 源码的注释。
 
 ---
 
