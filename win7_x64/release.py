@@ -25,7 +25,7 @@ parser.add_argument(
 parser.add_argument(
     "--run",
     default="Umi-OCR.exe",
-    help="[选填] 启动器，默认为 Umi-OCR.exe",
+    help="[选填] 启动器路径，默认为 Umi-OCR.exe",
 )
 # 保留的内容
 parser.add_argument(
