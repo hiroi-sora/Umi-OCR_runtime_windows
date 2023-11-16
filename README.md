@@ -26,10 +26,11 @@ fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
 
 ## 1. 放置运行环境
 
-1. 从 [本仓库Release](https://github.com/hiroi-sora/Umi-OCR_runtime_windows/releases) 下载压缩包。
-2. 解压压缩包，将其中的内容拷贝到 Umi-OCR v2 项目路径下。
+<!-- 1. 从 [本仓库Release](https://github.com/hiroi-sora/Umi-OCR_runtime_windows/releases) 下载压缩包。 -->
+1. 下载本仓库的所有内容。建议直接下载zip压缩包。
+2. 解压压缩包，将所有内容拷贝到 Umi-OCR v2 项目路径下。
 
-（环境压缩包的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
+（环境仓库的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
 
 ## 2. 放置插件
 
