@@ -136,8 +136,8 @@ def get_plugins(v1, v2, v3, p1, p2):
     version = f"_v{v1}.{v2}.{v3}"
     if p1:
         version += f"_{p1}"
-    if p2:
-        version += f"_{p2}"
+        if p2:
+            version += f"_{p2}"
     plug = args.plugins
     plug = plug.split("|")
     plugs = {}
