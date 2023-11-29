@@ -136,8 +136,8 @@ def get_plugins(v1, v2, v3, p1, p2):
     version = f"_v{v1}.{v2}.{v3}"
     if p1:
         version += f"_{p1}"
-    if p2:
-        version += f"_{p2}"
+        if p2:
+            version += f"_{p2}"
     plug = args.plugins
     plug = plug.split("|")
     plugs = {}
@@ -235,14 +235,9 @@ def to_sfx(plugs):
         # sfx绝对路径
         path_sfx = os.path.abspath(args.path_sfx)
         # 目标路径
-        target = value["name"] + ".7z"
+        target = os.path.abspath(args.path) + "\\" + value["name"] + ".7z"
         # copy构建sfx
-        command = [
-            "copy",
-            "/b",
-            f"{path_sfx}+{target}",
-            f"{target}.exe",
-        ]
+        command = f'copy /b "{path_sfx}"+"{target}" "{target}.exe"'
         print("\n开始创建插件sfx自解压文件：\n", command)
         subprocess.run(command, shell=True, cwd=args.path)
 
