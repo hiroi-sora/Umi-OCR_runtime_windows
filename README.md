@@ -1,6 +1,14 @@
-# Umi-OCR windows 运行环境
+<p align="center">
+  <a href="https://github.com/hiroi-sora/Umi-OCR">
+    <img width="200" height="128" src="https://tupian.li/images/2022/10/27/icon---256.png" alt="Umi-OCR">
+  </a>
+</p>
 
-为 [Umi-OCR_v2](https://github.com/hiroi-sora/Umi-OCR_v2) 的代码 提供Windows运行环境。
+<h1 align="center">Umi-OCR windows 运行环境</h1>
+
+本仓库为 [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) 的代码 提供Windows运行环境。
+
+开发者你好，探索和参与 Umi-OCR 项目。下文将会指导你搭建起适用于Windows的开发环境。
 
 ### 系统支持
 
@@ -14,27 +22,25 @@
 2. python解释器 `runtime` (3.8.10)
 3. python第三方库 `site-packages`
 
-# Umi-OCR 搭建windows开发环境
-
-开发者你好，探索和参与 Umi-OCR 项目。下文将会指导你搭建起适用于 Umi-OCR V2 的开发环境。
+## 开始搭建windows开发环境
 
 搭建windows开发环境分为四步：下载主仓库代码、放置运行环境、放置插件、搭建开发环境。
 
 ## 0. 下载主要代码
 
-fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2) 。
+fork / clone [主仓库](https://github.com/hiroi-sora/Umi-OCR) 。
 
 ## 1. 放置运行环境
 
 <!-- 1. 从 [本仓库Release](https://github.com/hiroi-sora/Umi-OCR_runtime_windows/releases) 下载压缩包。 -->
 1. 下载本仓库的所有内容。建议直接下载zip压缩包。
-2. 解压压缩包，将所有内容拷贝到 Umi-OCR v2 项目路径下。
+2. 解压压缩包，将所有内容拷贝到 Umi-OCR 项目路径下。
 
 （环境仓库的目录结构，与主仓库的项目结构是一一对应的。理论上直接拷贝，可以直接将文件放置到合适的位置。）
 
 ## 2. 放置插件
 
-在 [插件仓库](https://github.com/hiroi-sora/Umi-OCR_plugins) 下载需要的插件，根据提示放置在Umi-OCR指定目录下。
+在 [插件仓库](https://github.com/hiroi-sora/Umi-OCR_plugins) 下载需要的插件，根据提示放置在指定目录下。
 
 ## 3. 搭建开发环境
 
@@ -154,7 +160,7 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 
 ### 各仓库：
 
-- [主仓库](https://github.com/hiroi-sora/Umi-OCR_v2)
+- [主仓库](https://github.com/hiroi-sora/Umi-OCR)
 - [插件库](https://github.com/hiroi-sora/Umi-OCR_plugins)
 - [Win 运行库](https://github.com/hiroi-sora/Umi-OCR_runtime_windows) 👈
 
