@@ -133,7 +133,7 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 
 有部分包直接放置不能运行，请根据报错信息见机行事。常见的原因有：
 - import层级错误。将包内代码修改为相对导入。
-- python版本或系统平台错误。请确保此包兼容win 32/64位、python 3.8 。
+- python版本或系统平台错误。请确保此包兼容win 64位、python 3.8 。
 大部分包在调整之后可以正常运行，与pip安装无异。
 
 如果某些包有大量依赖、难以安装，如某些大型机器学习库。那么你要思考，将这几百MB塞进项目，会不会影响Umi-OCR的轻便易用性。也许更应该以 [插件](https://github.com/hiroi-sora/Umi-OCR_plugins) 的形式提供这些功能。
@@ -146,7 +146,8 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 
 如果你为Umi-OCR主仓库贡献了代码，且这些代码必须引入一个新的第三方包，请：
 - 确保该包已经删减到最小
-- 压缩为zip，放置于 `site-packages` 中
+- fork本仓库
+- 将文件放置于 `site-packages` 中
 - push到本仓库
 
 # Umi-OCR 项目结构
