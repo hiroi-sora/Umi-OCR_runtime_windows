@@ -39,6 +39,12 @@ parser.add_argument(
     default="Paddle,win7_x64_PaddleOCR-json|Rapid,win7_x64_RapidOCR-json",
     help="[选填] 插件选取，格式：打包名1,插件1,插件2|打包名2,插件2,插件3",
 )
+# 要屏蔽的目录
+parser.add_argument(
+    "--ignores",
+    default="win7_x64_Pix2Text",
+    help='[选填] 要排除的目录名称，以","划分',
+)
 # 7z工具路径
 parser.add_argument(
     "--path_7z",
@@ -77,6 +83,12 @@ def copy_all():
     # 拷贝启动器
     shutil.copy(args.run, target)
     print("   ", args.run)
+    # 排除的目录
+    ignores = args.ignores.split(",")
+
+    def ignore_func(directory, filenames):
+        return [name for name in filenames if name in ignores]
+
     # 拷贝data
     datas = args.datas.split(",")
     data_target = target + "/UmiOCR-data"
@@ -87,7 +99,7 @@ def copy_all():
             print("   ", path)
         elif os.path.isdir(path):
             print("   ", path)
-            shutil.copytree(path, data_target + "/" + data)
+            shutil.copytree(path, data_target + "/" + data, ignore=ignore_func)
     print("结束拷贝基础文件")
     # 清理缓存
     cache_n = 0
@@ -147,6 +159,7 @@ def get_plugins(v1, v2, v3, p1, p2):
     for v in plug:
         ps = v.split(",")
         name = ps[0]
+        # 生成的目录名称
         f = "Umi-OCR_" + name + version
         now_plugs = ps[1:]
         # 检查插件存在
