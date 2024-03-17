@@ -37,7 +37,7 @@ parser.add_argument(
 # 保留的内容
 parser.add_argument(
     "--datas",
-    default="i18n,plugins,py_src,qt_res,runtime,site-packages,main.py,RUN_CLI.bat,RUN_GUI.bat,test_speed.bat,version.py,帮助.txt",
+    default="i18n,plugins,py_src,qt_res,runtime,site-packages,main.py,RUN_CLI.bat,RUN_GUI.bat,test_speed.bat,about.json,帮助.txt",
     help="[选填] 内容目录文件选取，格式：文件1,文件2,文件3……",
 )
 # 插件区分
@@ -49,7 +49,7 @@ parser.add_argument(
 # 要屏蔽的目录
 parser.add_argument(
     "--ignores",
-    default="win7_x64_Pix2Text",
+    default="__pycache__,win7_x64_Pix2Text",
     help='[选填] 要排除的目录名称，以","划分',
 )
 # 7z工具路径
