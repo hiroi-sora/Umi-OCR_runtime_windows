@@ -3,6 +3,7 @@
 # =========================================
 
 import os
+import json
 import shutil
 import argparse
 import subprocess
@@ -10,16 +11,22 @@ import subprocess
 # 定义参数
 parser = argparse.ArgumentParser(description="Umi-OCR Release 生成发布包")
 # 是否打压缩包
-parser.add_argument("--to_7z", action="store_true", default=True, help="[选填] 是否生成压缩包")
+parser.add_argument(
+    "--to_7z", action="store_true", default=True, help="[选填] 是否生成压缩包"
+)
 # 是否生成自解压文件
 parser.add_argument(
     "--to_sfx", action="store_true", default=True, help="[选填] 是否生成自解压文件"
 )
 # 发布目录
-parser.add_argument("--path", default="./release", help="[选填] 发布包存放路径，默认为 /release")
+parser.add_argument(
+    "--path", default="./release", help="[选填] 发布包存放路径，默认为 /release"
+)
 # 版本文件路径
 parser.add_argument(
-    "--version", default="./UmiOCR-data/version.py", help="[选填] 版本文件 version.py 的路径"
+    "--about",
+    default="./UmiOCR-data/about.json",
+    help="[选填] 版本文件 about.json 的路径",
 )
 # 启动器路径
 parser.add_argument(
@@ -124,17 +131,17 @@ copy_all()
 
 # 获取版本号信息
 def get_version():
-    v = args.version
-    with open(v, "r", encoding="utf-8") as f:
-        code = f.read()
-    exec(code)
+    a = args.about
+    with open(a, "r", encoding="utf-8") as f:
+        u = json.load(f)
     print("读取版本信息")
+    v = u["version"]
     v1, v2, v3, p1, p2 = (
-        locals().get("MAJOR_VERSION"),  # 主版本号
-        locals().get("MINOR_VERSION"),  # 次版本号
-        locals().get("PATCH_VERSION"),  # 修订版本号
-        locals().get("PRE_RELEASE"),  # 预发布阶段
-        locals().get("PRE_RELEASE_VERSION"),  # 预发布版本号
+        v["major"],  # 主版本号
+        v["minor"],  # 次版本号
+        v["patch"],  # 修订版本号
+        v["prerelease"],  # 预发布阶段
+        v["prereleaseNumber"],  # 预发布版本号
     )
     return v1, v2, v3, p1, p2
 
