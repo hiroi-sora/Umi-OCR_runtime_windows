@@ -218,6 +218,7 @@ if not args.to_7z:
 # 检测 7zr.exe 存在
 if not os.path.exists(args.path_7z):
     print("未找到 7zr.exe ，停止后续压缩步骤。")
+    exit()
 
 
 # 生成压缩包
