@@ -13,6 +13,7 @@
             "console": "integratedTerminal", // 输出到 VS Code 的集成终端
             "justMyCode": true,
             "env": {
+                "PYDEVD_DISABLE_FILE_VALIDATION": "1",  // 禁用验证
                 "PYSTAND": "${workspaceFolder}/Umi-OCR.exe", // 启动器exe路径
             },
             "python": "${workspaceFolder}/UmiOCR-data/runtime/python.exe", // 解释器路径
