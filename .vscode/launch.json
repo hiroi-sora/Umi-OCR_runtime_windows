@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "主程序",
+            "name": "Umi-OCR Run!",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/UmiOCR-data/main.py", // 启动主程序
@@ -13,7 +13,7 @@
             "console": "integratedTerminal", // 输出到 VS Code 的集成终端
             "justMyCode": true,
             "env": {
-                "PYDEVD_DISABLE_FILE_VALIDATION": "1", // 禁用验证
+                "PYSTAND": "${workspaceFolder}/Umi-OCR.exe", // 启动器exe路径
             },
             "python": "${workspaceFolder}/UmiOCR-data/runtime/python.exe", // 解释器路径
             "args": []
@@ -27,7 +27,6 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {
-                "PYDEVD_DISABLE_FILE_VALIDATION": "1",
             },
             "python": "${workspaceFolder}/UmiOCR-data/runtime/python.exe",
             "args": []
@@ -41,7 +40,6 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {
-                "PYDEVD_DISABLE_FILE_VALIDATION": "1",
             },
             "python": "${workspaceFolder}/UmiOCR-data/runtime/python.exe",
             "args": []
@@ -55,13 +53,12 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {
-                "PYDEVD_DISABLE_FILE_VALIDATION": "1",
             },
             "python": "${workspaceFolder}/UmiOCR-data/runtime/python.exe",
             "args": []
         },
         {
-            "name": "当前文件",
+            "name": "file",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}", // 启动当前文件
