@@ -175,7 +175,8 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 
 - [主仓库](https://github.com/hiroi-sora/Umi-OCR)
 - [插件库](https://github.com/hiroi-sora/Umi-OCR_plugins)
-- [Win 运行库](https://github.com/hiroi-sora/Umi-OCR_runtime_windows) 👈
+- [Windows 运行库](https://github.com/hiroi-sora/Umi-OCR_runtime_windows) 👈
+- [Linux 运行库](https://github.com/hiroi-sora/Umi-OCR_runtime_linux)
 
 ### 工程结构：
 
@@ -184,6 +185,7 @@ pip download --only-binary=:all: --platform win_amd64 PySide2
 ```
 Umi-OCR
 ├─ Umi-OCR.exe **
+├─ umi-ocr.sh
 └─ UmiOCR-data
    ├─ main.py
    ├─ version.py
