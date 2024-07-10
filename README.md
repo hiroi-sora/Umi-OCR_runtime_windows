@@ -4,6 +4,19 @@
   </a>
 </p>
 
+<p align="left">
+    平台：
+    <span>
+        <b>Windows</b>
+    </span>
+    <span> • </span>
+    <span>
+    <a href="https://github.com/hiroi-sora/Umi-OCR_runtime_linux">
+        Linux
+    </a>
+    </span>
+</p>
+
 <h1 align="center">Umi-OCR windows 运行环境</h1>
 
 本仓库为 [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) 的代码 提供Windows运行环境。
