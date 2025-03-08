@@ -29,15 +29,17 @@
 
 ### 运行环境说明
 
-在设计上， Umi-OCR 采用业务代码与运行环境分离的结构。业务代码（即 [主仓库](https://github.com/hiroi-sora/Umi-OCR) ）兼容所有平台，但不能单独执行；必须和运行环境支持库（即 [Windows](https://github.com/hiroi-sora/Umi-OCR_runtime_windows) 、 [Linux](https://github.com/hiroi-sora/Umi-OCR_runtime_linux) 库）组合在一起，才能得到一个完整的 **可执行程序** 。
+在设计上， Umi-OCR 采用业务代码与运行环境分离的结构。业务代码（即 [主仓库](https://github.com/hiroi-sora/Umi-OCR) ）兼容所有平台，但不能单独执行；必须和运行环境支持库（即 [Windows](https://github.com/hiroi-sora/Umi-OCR_runtime_windows)/[Linux](https://github.com/hiroi-sora/Umi-OCR_runtime_linux) 库）、OCR引擎插件（[Umi-OCR_plugins](https://github.com/hiroi-sora/Umi-OCR_plugins)）组合在一起，才能得到一个完整的 **可执行程序** 。
 
-对于 Windows 运行环境，主要包含以下组件：
+对于 Windows 系统，需要以下组件才能得到完整程序：
 
-1. 启动器exe `Umi-OCR.exe`
-2. python解释器 (3.8.10) `UmiOCR-data/runtime` 
-3. python第三方库 `UmiOCR-data/site-packages`
+1. 业务代码，包括但不限于： `UmiOCR-data\py_src`、`UmiOCR-data\qt_res`
+2. 启动器exe： `Umi-OCR.exe`
+3. python解释器 (3.8.10)： `UmiOCR-data/runtime` 
+4. python第三方库： `UmiOCR-data/site-packages`
+5. OCR引擎插件，例如： `UmiOCR-data/plugins/win7_x64_RapidOCR-json`
 
-总之，请根据后续步骤，搭建起可执行程序及开发环境。
+请根据后续步骤，搭建起完整程序及开发环境。
 
 ## 搭建 Windows 运行环境
 
