@@ -1,3 +1,10 @@
 PyStand_for_UmiOCR/build
 **/__pycache__
 Temp
+
+# 运行环境
+UmiOCR-data/runtime
+# 依赖库
+UmiOCR-data/site-packages
+# Win7 补充驱动文件
+dev-tools/win7_x64_opengl32sw
