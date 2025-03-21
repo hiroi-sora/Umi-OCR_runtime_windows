@@ -195,9 +195,12 @@ UmiOCR-data/runtime/python.exe release.py
 
 ---
 
-## 关于第三方包
+## 关于依赖库
 
-如果你正在对 Umi-OCR 进行二次开发，并希望载入第三方python包，请参照以下步骤。
+- [更新依赖库](./dev-tools/Update_dependency_libraries.md)
+- 添加新库：
+
+如果你正在对 Umi-OCR 进行二次开发，并希望加入新的第三方python包，请参照以下步骤。
 
 ### 1. 下载
 
